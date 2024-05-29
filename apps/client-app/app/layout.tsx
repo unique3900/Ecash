@@ -1,9 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import {store} from '@repo/store/store';
-import { Provider } from 'react-redux'
+import { store } from "@repo/store/store";
+import { Provider } from "react-redux";
 import { StoreProvider } from "./StoreProvider";
-
+import { SessionProvider } from "next-auth/react";
+import Navbar from "@repo/ui/navbar";
 
 export const metadata: Metadata = {
   title: "Ecash",
@@ -18,14 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-<StoreProvider>
-{children}
-</StoreProvider>
-        
- 
-        
+          <StoreProvider>
+            {children}</StoreProvider>
 
-        
       </body>
     </html>
   );
