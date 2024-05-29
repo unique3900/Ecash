@@ -1,0 +1,22 @@
+{
+  "name": "@repo/db",
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "module": "NodeNext"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "dependencies": {
+    "@prisma/client": "^5.14.0"
+  },
+  "exports": {
+    "./client": "./index.ts"
+  }
+}
