@@ -15,7 +15,7 @@ export interface BalanceState {
     name:'Balance',
     initialState,
     reducers:{
-
+       
     }
   })
 
