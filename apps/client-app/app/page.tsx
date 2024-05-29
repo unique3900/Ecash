@@ -1,13 +1,13 @@
+
 import { PrismaClient } from '@repo/db/client'
+import { store } from '@repo/store/store'
 import React from 'react'
 
 
 const page = () => {
-  if(PrismaClient){
-    console.log("Hey")
-  }
+  
   return (
-    <div className=''>page</div>
+    <div className=''>hey</div>
   )
 }
 
