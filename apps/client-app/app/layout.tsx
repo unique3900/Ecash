@@ -1,5 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import {store} from '@repo/store/store';
+import { Provider } from 'react-redux'
+import { StoreProvider } from "./StoreProvider";
 
 
 export const metadata: Metadata = {
@@ -14,7 +17,16 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+<StoreProvider>
+{children}
+</StoreProvider>
+        
+ 
+        
+
+        
+      </body>
     </html>
   );
 }
