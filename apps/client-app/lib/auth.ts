@@ -17,12 +17,12 @@ export const authOptions = {
             const hashedPassword = await bcrypt.hash(credentials.password, 10);
             const existingUser = await db.user.findFirst({
                 where: {
-                    email: credentials.phone
+                    email: credentials.email
                 }
             });
 
             if (existingUser) {
-                const passwordValidation = await bcrypt.compare(credentials.password, existingUser.password);
+                const passwordValidation = await bcrypt.compare(credentials.password,existingUser.password||'');
                 if (passwordValidation) {
                     return {
                         id: existingUser.id.toString(),
@@ -38,6 +38,7 @@ export const authOptions = {
                     data: {
                         email: credentials.email,
                         password: hashedPassword,
+                        authType:'Credentials'
                     }
                 });
                 return {
