@@ -1,5 +1,8 @@
 import db from "@repo/db/client";
 import CredentialsProvider from "next-auth/providers/credentials"
+import GoogleProvider from 'next-auth/providers/google';
+import GitHubProvider from 'next-auth/providers/github';
+
 import bcrypt from "bcrypt";
 
 export const authOptions = {
@@ -48,7 +51,15 @@ export const authOptions = {
 
             return null
           },
-        })
+        }),
+         GoogleProvider({
+        clientId: process.env.GOOGLE_CLIENT_ID || "",
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET || ""
+      }),
+      GitHubProvider({
+        clientId: process.env.GITHUB_ID || "",
+        clientSecret: process.env.GITHUB_SECRET || ""
+      })
     ],
     secret: process.env.JWT_SECRET || "secret",
     callbacks: {
